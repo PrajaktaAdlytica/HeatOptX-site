@@ -10,8 +10,20 @@
   <path d="M88 268H242C286 268 314 160 382 160H548" stroke="#7E9F96" stroke-width="7" stroke-linecap="round"/>
   <rect x="92" y="132" width="86" height="54" rx="10" fill="#FFFFFF" stroke="#DDD2C5"/>
   <rect x="408" y="236" width="104" height="56" rx="10" fill="#FFFFFF" stroke="#DDD2C5"/>
-  <circle cx="374" cy="214" r="18" fill="#A7473D"/>
-  <circle cx="374" cy="214" r="34" stroke="#A7473D" opacity=".16" stroke-width="12"/>
+  <g>
+    <animateTransform
+      attributeName="transform"
+      type="translate"
+      values="0 0; 178 0; 178 0; 0 0"
+      keyTimes="0; 0.52; 0.72; 1"
+      dur="4.8s"
+      repeatCount="indefinite"
+      calcMode="spline"
+      keySplines=".42 0 .2 1; .2 0 .2 1; .42 0 .2 1"
+    />
+    <circle cx="374" cy="214" r="18" fill="#A7473D"/>
+    <circle cx="374" cy="214" r="34" stroke="#A7473D" opacity=".16" stroke-width="12"/>
+  </g>
   <rect x="404" y="64" width="142" height="78" rx="12" fill="#FFFFFF" stroke="#DDD2C5"/>
   <text x="424" y="96" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700" fill="#1E2526">Loss hotspot</text>
   <text x="424" y="120" font-family="Inter, Arial, sans-serif" font-size="12" fill="#4D5B5C">Pipe A-14 · €42k/year</text>

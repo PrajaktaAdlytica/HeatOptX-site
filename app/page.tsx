@@ -91,14 +91,11 @@ export default function Home() {
             <span>HeatOptx Map</span>
             <strong>Live assessment</strong>
           </div>
-          <div className="hero-illustration-wrap">
-            <img
-              className="hero-illustration"
-              src="/illustrations/plant-thermal-loss-map.svg"
-              alt="Plant thermal loss map with heat routes and a hotspot"
-            />
-            <span className="hero-hotspot-motion" aria-hidden="true" />
-          </div>
+          <img
+            className="hero-illustration"
+            src="/illustrations/plant-thermal-loss-map.svg"
+            alt="Plant thermal loss map with heat routes and a hotspot"
+          />
           <div className="hero-metrics">
             <div>
               <span>Annualized loss</span>

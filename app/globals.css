@@ -647,42 +647,6 @@ h3 {
   border-radius: 8px;
 }
 
-.hero-illustration-wrap {
-  position: relative;
-}
-
-.hero-hotspot-motion {
-  position: absolute;
-  top: 52%;
-  left: 58.5%;
-  width: clamp(18px, 2.6vw, 30px);
-  height: clamp(18px, 2.6vw, 30px);
-  border-radius: 999px;
-  background: var(--red);
-  box-shadow:
-    0 0 0 12px rgba(167, 71, 61, 0.16),
-    0 0 0 26px rgba(167, 71, 61, 0.08);
-  transform: translate(-50%, -50%);
-  animation: heroHotspotMove 3.8s ease-in-out infinite;
-}
-
-@keyframes heroHotspotMove {
-  0%,
-  100% {
-    transform: translate(-50%, -50%) scale(0.92);
-    box-shadow:
-      0 0 0 10px rgba(167, 71, 61, 0.14),
-      0 0 0 22px rgba(167, 71, 61, 0.06);
-  }
-
-  45% {
-    transform: translate(calc(-50% + 18px), calc(-50% - 10px)) scale(1.04);
-    box-shadow:
-      0 0 0 15px rgba(167, 71, 61, 0.18),
-      0 0 0 34px rgba(167, 71, 61, 0.07);
-  }
-}
-
 .hero-metrics {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

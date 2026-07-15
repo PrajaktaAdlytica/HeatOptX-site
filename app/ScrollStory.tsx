@@ -90,7 +90,7 @@ export function ScrollStory() {
     >
       <div className="story-pin">
         <div className="story-copy">
-          <p className="section-kicker">Scroll story</p>
+          <p className="section-kicker">Thermal workflow</p>
           <span className="story-step-label">{steps[activeStep].eyebrow}</span>
           <h2>{steps[activeStep].title}</h2>
           <p>{steps[activeStep].copy}</p>
