@@ -1,5 +1,6 @@
 import { CinematicEntry } from "./CinematicEntry";
 import { ScrollStory } from "./ScrollStory";
+import type { CSSProperties } from "react";
 
 const productCards = [
   {
@@ -135,6 +136,77 @@ const solutionJourney = [
     icon: "/icons/roi.svg",
     title: "Prove results",
     copy: "Measure savings, verify impact, and improve continuously.",
+  },
+];
+
+const roiRepairs = [
+  {
+    priority: 1,
+    icon: "/icons/heat-exchanger.svg",
+    issue: "Heat exchanger fouling",
+    loss: "2,450 MWh/yr",
+    cost: "EUR 48,200",
+    payback: "3.2 mo",
+    confidence: "High",
+    confidenceLevel: 92,
+  },
+  {
+    priority: 2,
+    icon: "/icons/pipe-network.svg",
+    issue: "Steam trap leak",
+    loss: "1,820 MWh/yr",
+    cost: "EUR 21,600",
+    payback: "4.7 mo",
+    confidence: "Medium",
+    confidenceLevel: 62,
+  },
+  {
+    priority: 3,
+    icon: "/icons/insulation.svg",
+    issue: "Insulation degradation",
+    loss: "980 MWh/yr",
+    cost: "EUR 12,800",
+    payback: "6.1 mo",
+    confidence: "Medium",
+    confidenceLevel: 58,
+  },
+  {
+    priority: 4,
+    icon: "/icons/boiler.svg",
+    issue: "Valve bypass",
+    loss: "610 MWh/yr",
+    cost: "EUR 7,900",
+    payback: "8.3 mo",
+    confidence: "Low",
+    confidenceLevel: 35,
+  },
+];
+
+const roiProofItems = [
+  {
+    icon: "/icons/thermal-map.svg",
+    title: "Quantify what matters",
+    copy: "Measure hidden heat loss with confidence.",
+  },
+  {
+    icon: "/icons/savings.svg",
+    title: "Compare with confidence",
+    copy: "Benchmark options and validate assumptions.",
+  },
+  {
+    icon: "/icons/security.svg",
+    title: "Focus on what pays back",
+    copy: "Prioritize fixes that deliver the highest impact fastest.",
+  },
+  {
+    icon: "/icons/co2-reporting.svg",
+    title: "Report with credibility",
+    copy: "Communicate ROI, CO2 impact, and confidence clearly.",
+  },
+  {
+    icon: "/icons/dashboard.svg",
+    title: "Coordinate repairs",
+    copy: "Align maintenance, energy, and leadership teams.",
   },
 ];
 
@@ -611,29 +683,69 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section proof-section">
-        <div className="proof-copy">
-          <p className="section-kicker">ROI proof</p>
-          <h2>Prioritization makes heat-loss work fundable.</h2>
-          <p>
-            HeatOptx packages each finding with the language decision-makers
-            need: estimated loss, fix cost, payback, emissions impact, and
-            confidence level.
-          </p>
+      <section className="section proof-section" id="roi-proof">
+        <div className="proof-top">
+          <div className="proof-copy">
+            <p className="section-kicker">ROI proof</p>
+            <h2>Prioritization makes heat-loss work fundable.</h2>
+            <span className="proof-rule" aria-hidden="true" />
+            <p>
+              HeatOptx packages each finding with the language decision-makers
+              need: estimated loss, fix cost, payback, emissions impact, and
+              confidence level.
+            </p>
+          </div>
+          <div className="repair-table-card">
+            <div className="repair-table-header">
+              <h3>Ranked repair opportunities</h3>
+              <button type="button">Sort by: Payback</button>
+            </div>
+            <div className="repair-table" role="table" aria-label="Ranked repair opportunities">
+              <div className="repair-row repair-head" role="row">
+                <span>Priority</span>
+                <span>Asset / Issue</span>
+                <span>Est. Heat Loss</span>
+                <span>Fix Cost</span>
+                <span>Payback</span>
+                <span>Confidence</span>
+              </div>
+              {roiRepairs.map((repair) => (
+                <div className="repair-row" role="row" key={repair.issue}>
+                  <span className={`repair-priority priority-${repair.priority}`}>
+                    {repair.priority}
+                  </span>
+                  <span className="repair-issue">
+                    <img src={repair.icon} alt="" aria-hidden="true" />
+                    <strong>{repair.issue}</strong>
+                  </span>
+                  <strong className="repair-loss">{repair.loss}</strong>
+                  <span>{repair.cost}</span>
+                  <strong className="repair-payback">{repair.payback}</strong>
+                  <span className="confidence">
+                    <i style={{ "--level": `${repair.confidenceLevel}%` } as CSSProperties} />
+                    {repair.confidence}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
-        <div className="proof-grid">
-          <div>
-            <span>Assessment output</span>
-            <strong>Ranked repair list</strong>
-          </div>
-          <div>
-            <span>Financial model</span>
-            <strong>Payback by asset</strong>
-          </div>
-          <div>
-            <span>Operations handoff</span>
-            <strong>Work-order ready</strong>
-          </div>
+        <div className="roi-proof-grid">
+          {roiProofItems.map((item) => (
+            <article key={item.title}>
+              <img src={item.icon} alt="" aria-hidden="true" />
+              <h3>{item.title}</h3>
+              <p>{item.copy}</p>
+            </article>
+          ))}
+        </div>
+        <div className="roi-proof-cta">
+          <span>
+            <img src="/icons/roi.svg" alt="" aria-hidden="true" />
+            <strong>Turn complexity into clarity.</strong>
+            <small>One ranked list. Defensible decisions. Measurable impact.</small>
+          </span>
+          <a href="#demo">See how it works</a>
         </div>
       </section>
 
