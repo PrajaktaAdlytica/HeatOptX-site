@@ -75,22 +75,25 @@ test("server-renders the HeatOptx sign-in page", async () => {
   assert.match(html, /Request an ROI assessment/);
 });
 
-test("server-renders product detail and demo pages", async () => {
-  const [mapResponse, detectResponse, roiResponse, demoResponse] =
+test("server-renders product detail, pricing, and demo pages", async () => {
+  const [mapResponse, detectResponse, roiResponse, pricingResponse, demoResponse] =
     await Promise.all([
       render("/products/map"),
       render("/products/detect"),
       render("/products/roi"),
+      render("/pricing"),
       render("/demo"),
     ]);
 
   assert.equal(mapResponse.status, 200);
   assert.equal(detectResponse.status, 200);
   assert.equal(roiResponse.status, 200);
+  assert.equal(pricingResponse.status, 200);
   assert.equal(demoResponse.status, 200);
 
   assert.match(await mapResponse.text(), /A live thermal map/);
   assert.match(await detectResponse.text(), /AI detection for leaks/);
   assert.match(await roiResponse.text(), /Repair prioritization/);
+  assert.match(await pricingResponse.text(), /Start with the highest-value losses/);
   assert.match(await demoResponse.text(), /Find the heat losses that should be fixed first/);
 });
