@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { SiteFooter } from "../SiteFooter";
+import { SubpageNav } from "../SubpageNav";
 
 export const metadata = {
   title: "Sign In - HeatOptx",
@@ -8,6 +10,7 @@ export const metadata = {
 export default function SignInPage() {
   return (
     <main className="auth-page">
+      <SubpageNav />
       <section className="auth-shell" aria-label="HeatOptx sign in">
         <div className="auth-brand-panel">
           <Link href="/" aria-label="Back to HeatOptx home">
@@ -57,11 +60,17 @@ export default function SignInPage() {
           <button className="button" type="submit">
             Sign in
           </button>
-          <Link className="auth-link" href="/#demo">
+          <Link className="auth-link" href="/demo">
             Need access? Request an ROI assessment
           </Link>
         </form>
       </section>
+      <section className="auth-trust-strip" aria-label="HeatOptx workspace benefits">
+        <span>Role-aware workspaces</span>
+        <span>Assessment reports</span>
+        <span>Thermal anomaly review</span>
+      </section>
+      <SiteFooter />
     </main>
   );
 }

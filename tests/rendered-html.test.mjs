@@ -43,13 +43,14 @@ test("server-renders the HeatOptx homepage", async () => {
 });
 
 test("uses finished HeatOptx assets and removes starter preview files", async () => {
-  const [page, layout, packageJson] = await Promise.all([
+  const [page, footer, layout, packageJson] = await Promise.all([
     readFile(new URL("../app/page.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../app/SiteFooter.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/layout.tsx", import.meta.url), "utf8"),
     readFile(new URL("../package.json", import.meta.url), "utf8"),
   ]);
 
-  assert.match(page, /heatoptx-logo-horizontal\.svg/);
+  assert.match(`${page}\n${footer}`, /heatoptx-logo-horizontal\.svg/);
   assert.match(page, /plant-thermal-loss-map\.svg/);
   assert.match(page, /Request demo/);
   assert.match(layout, /HeatOptx - Industrial Thermal AI/);
@@ -72,4 +73,24 @@ test("server-renders the HeatOptx sign-in page", async () => {
   assert.match(html, /Access HeatOptx/);
   assert.match(html, /Plant A thermal assessment/);
   assert.match(html, /Request an ROI assessment/);
+});
+
+test("server-renders product detail and demo pages", async () => {
+  const [mapResponse, detectResponse, roiResponse, demoResponse] =
+    await Promise.all([
+      render("/products/map"),
+      render("/products/detect"),
+      render("/products/roi"),
+      render("/demo"),
+    ]);
+
+  assert.equal(mapResponse.status, 200);
+  assert.equal(detectResponse.status, 200);
+  assert.equal(roiResponse.status, 200);
+  assert.equal(demoResponse.status, 200);
+
+  assert.match(await mapResponse.text(), /A live thermal map/);
+  assert.match(await detectResponse.text(), /AI detection for leaks/);
+  assert.match(await roiResponse.text(), /Repair prioritization/);
+  assert.match(await demoResponse.text(), /Find the heat losses that should be fixed first/);
 });

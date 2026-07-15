@@ -17,7 +17,7 @@ const navLinks = [
   { label: "Problem", href: "#problem" },
   { label: "Solutions", href: "#solutions" },
   { label: "Pricing", href: "#pricing" },
-  { label: "Contact", href: "#demo" },
+  { label: "Contact", href: "/demo" },
 ];
 
 export function CinematicEntry() {
@@ -92,7 +92,7 @@ export function CinematicEntry() {
           </a>
           <a
             className="entry-demo animate-blur-fade-up"
-            href="#demo"
+            href="/demo"
             style={{ animationDelay: "400ms" }}
           >
             Request demo
@@ -134,7 +134,7 @@ export function CinematicEntry() {
           <a href="/sign-in" onClick={() => setIsOpen(false)}>
             Sign in
           </a>
-          <a href="#demo" onClick={() => setIsOpen(false)}>
+          <a href="/demo" onClick={() => setIsOpen(false)}>
             Request demo
           </a>
         </div>
@@ -178,7 +178,7 @@ export function CinematicEntry() {
             <div className="entry-ctas">
               <a
                 className="entry-primary animate-blur-fade-up"
-                href="#demo"
+                href="/demo"
                 style={{ animationDelay: "600ms" }}
               >
                 <Play size={18} fill="currentColor" />

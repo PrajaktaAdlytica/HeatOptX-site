@@ -1,10 +1,12 @@
 import { CinematicEntry } from "./CinematicEntry";
 import { ScrollStory } from "./ScrollStory";
+import { SiteFooter } from "./SiteFooter";
 import type { CSSProperties } from "react";
 
 const productCards = [
   {
     kind: "map",
+    href: "/products/map",
     icon: "/icons/thermal-map.svg",
     title: "HeatOptx Map",
     copy:
@@ -17,6 +19,7 @@ const productCards = [
   },
   {
     kind: "detect",
+    href: "/products/detect",
     icon: "/icons/detect.svg",
     title: "HeatOptx Detect",
     copy:
@@ -29,6 +32,7 @@ const productCards = [
   },
   {
     kind: "roi",
+    href: "/products/roi",
     icon: "/icons/roi.svg",
     title: "HeatOptx ROI",
     copy:
@@ -379,7 +383,7 @@ export default function Home() {
             fix by ROI.
           </p>
           <div className="hero-actions">
-            <a className="button" href="#demo">
+            <a className="button" href="/demo">
               Request ROI assessment
             </a>
             <a className="button button-secondary" href="#story">
@@ -532,6 +536,9 @@ export default function Home() {
                     </span>
                   ))}
                 </div>
+                <a className="product-card-link" href={card.href}>
+                  Explore {card.title}
+                </a>
               </div>
               <div className={`product-preview product-preview-${card.kind}`}>
                 {card.kind === "map" && (
@@ -620,7 +627,7 @@ export default function Home() {
                           <small>{["EUR 152,300 / 4.2 mo", "EUR 98,700 / 6.1 mo", "EUR 61,500 / 5.3 mo"][index]}</small>
                         </p>
                       ))}
-                      <a href="#demo">View all actions</a>
+                      <a href="/demo">View all actions</a>
                     </div>
                   </>
                 )}
@@ -826,7 +833,7 @@ export default function Home() {
             <strong>Turn complexity into clarity.</strong>
             <small>One ranked list. Defensible decisions. Measurable impact.</small>
           </span>
-          <a href="#demo">See how it works</a>
+          <a href="/demo">See how it works</a>
         </div>
       </section>
 
@@ -867,7 +874,7 @@ export default function Home() {
               </div>
               <a
                 className={`pricing-cta${plan.highlighted ? " pricing-cta-primary" : ""}`}
-                href="#demo"
+                href="/demo"
               >
                 {plan.cta}
               </a>
@@ -926,33 +933,7 @@ export default function Home() {
         </form>
       </section>
 
-      <footer className="site-footer">
-        <div>
-          <img src="/brand/heatoptx-logo-horizontal.svg" alt="HeatOptx" />
-          <p>
-            Industrial Thermal AI for hidden heat loss across industrial and
-            district heating systems.
-          </p>
-        </div>
-        <div className="footer-links">
-          <a href="#product">Product</a>
-          <a href="#problem">Problem</a>
-          <a href="#solutions">Solutions</a>
-          <a href="#pricing">Pricing</a>
-          <a href="#demo">Contact</a>
-        </div>
-        <div className="footer-socials" aria-label="Social links">
-          <a href="https://www.linkedin.com" aria-label="LinkedIn">
-            <span>in</span>
-          </a>
-          <a href="https://x.com" aria-label="X">
-            <span>X</span>
-          </a>
-          <a href="https://www.youtube.com" aria-label="YouTube">
-            <span>YT</span>
-          </a>
-        </div>
-      </footer>
+      <SiteFooter />
     </main>
   );
 }

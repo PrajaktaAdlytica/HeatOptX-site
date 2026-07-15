@@ -126,10 +126,6 @@ export function ScrollStory() {
             src="/illustrations/data-integrations.svg"
             alt=""
           />
-
-          <div className="roi-chip chip-loss">EUR 42k / yr</div>
-          <div className="roi-chip chip-payback">3.8 mo payback</div>
-          <div className="roi-chip chip-co2">128 tCO2e</div>
         </div>
       </div>
     </section>
