@@ -686,39 +686,222 @@ h3 {
 
 .problem-band {
   display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  gap: 58px;
-  padding: 86px 0;
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
+  grid-template-columns: minmax(0, 1.04fr) minmax(420px, 0.96fr);
+  gap: clamp(54px, 7vw, 92px);
+  align-items: start;
+  padding: 92px 0 96px;
 }
 
 .problem-list {
   display: grid;
-  gap: 12px;
+  gap: 18px;
   padding: 0;
-  margin: 26px 0 0;
-  list-style: none;
+  margin: 34px 0 0;
 }
 
-.problem-list li {
+.problem-left h2 {
+  max-width: 570px;
+  margin-bottom: 30px;
+  font-size: clamp(42px, 4.2vw, 62px);
+  line-height: 1.08;
+}
+
+.problem-content {
+  padding-top: 22px;
+}
+
+.problem-content > p {
+  max-width: 560px;
+  color: var(--text);
+  font-size: 18px;
+  line-height: 1.75;
+}
+
+.problem-visual {
   position: relative;
-  padding: 15px 16px 15px 40px;
+  min-height: 360px;
+  margin: 16px 0 22px;
+  border-radius: 8px;
+}
+
+.problem-visual::before {
+  position: absolute;
+  inset: 8% -2% 8% -2%;
+  z-index: 0;
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at 48% 58%, rgba(198, 106, 72, 0.16), transparent 30%),
+    radial-gradient(circle at 54% 48%, rgba(240, 199, 164, 0.2), transparent 42%);
+  content: "";
+}
+
+.problem-plant {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  mix-blend-mode: multiply;
+}
+
+.problem-tag {
+  position: absolute;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 172px;
+  padding: 10px 14px;
+  border: 1px solid rgba(199, 183, 165, 0.9);
+  border-radius: 8px;
+  background: rgba(255, 253, 249, 0.9);
+  box-shadow: 0 14px 34px rgba(67, 51, 39, 0.08);
+}
+
+.problem-tag img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.problem-tag strong,
+.problem-tag small {
+  display: block;
+}
+
+.problem-tag strong {
+  color: var(--text);
+  font-size: 12px;
+  font-weight: 750;
+  text-transform: capitalize;
+}
+
+.problem-tag small {
+  margin-top: 4px;
+  color: var(--text);
+  font-size: 11px;
+}
+
+.tag-exchanger {
+  top: 12%;
+  left: 2%;
+}
+
+.tag-leak {
+  top: 12%;
+  right: 0;
+}
+
+.tag-boiler {
+  bottom: 10%;
+  left: 2%;
+}
+
+.tag-insulation {
+  right: 0;
+  bottom: 9%;
+}
+
+.problem-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 18px 20px;
   border: 1px solid var(--line);
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.58);
-  color: var(--muted);
+  background: rgba(255, 255, 255, 0.68);
+  box-shadow: 0 18px 45px rgba(67, 51, 39, 0.06);
 }
 
-.problem-list li::before {
+.problem-metrics div {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  min-width: 0;
+  padding: 2px 16px;
+  border-right: 1px solid rgba(221, 210, 197, 0.92);
+}
+
+.problem-metrics div:first-child {
+  padding-left: 0;
+}
+
+.problem-metrics div:last-child {
+  padding-right: 0;
+  border-right: 0;
+}
+
+.problem-metrics img {
+  width: 28px;
+  height: 28px;
+  flex: 0 0 auto;
+  object-fit: contain;
+}
+
+.problem-metrics strong,
+.problem-metrics small {
+  display: block;
+}
+
+.problem-metrics strong {
+  margin-bottom: 6px;
+  color: var(--text);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.problem-metrics small {
+  color: var(--text);
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.problem-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr);
+  gap: 16px;
+  align-items: center;
+  min-height: 82px;
+  padding: 18px 22px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.64);
+  box-shadow: 0 12px 34px rgba(67, 51, 39, 0.045);
+}
+
+.problem-card::before {
   position: absolute;
-  top: 18px;
-  left: 16px;
+  top: 50%;
+  left: -6px;
   width: 10px;
   height: 10px;
   border-radius: 999px;
   background: var(--copper);
   content: "";
+  transform: translateY(-50%);
+}
+
+.problem-card img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+}
+
+.problem-card h3 {
+  margin: 0 0 7px;
+  font-size: 17px;
+  line-height: 1.24;
+}
+
+.problem-card p {
+  margin: 0;
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.problem-card-highlight {
+  margin-top: 6px;
+  background: linear-gradient(90deg, rgba(240, 199, 164, 0.25), rgba(255, 255, 255, 0.72));
 }
 
 .scroll-story {
@@ -1352,6 +1535,15 @@ h3 {
     padding-top: 118px;
   }
 
+  .problem-content {
+    padding-top: 0;
+  }
+
+  .problem-content > p,
+  .problem-left h2 {
+    max-width: 760px;
+  }
+
   .story-pin {
     position: relative;
     top: auto;
@@ -1452,6 +1644,58 @@ h3 {
     padding: 104px 0 64px;
   }
 
+  .problem-band {
+    padding: 74px 0;
+  }
+
+  .problem-left h2 {
+    margin-bottom: 22px;
+    font-size: 40px;
+  }
+
+  .problem-visual {
+    min-height: 300px;
+    margin-bottom: 18px;
+  }
+
+  .problem-tag {
+    min-width: 150px;
+    padding: 8px 10px;
+  }
+
+  .problem-tag img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .problem-tag strong {
+    font-size: 11px;
+  }
+
+  .problem-tag small {
+    font-size: 10px;
+  }
+
+  .problem-metrics {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+    padding: 16px;
+  }
+
+  .problem-metrics div {
+    padding: 14px;
+    border-right: 0;
+    border-bottom: 1px solid rgba(221, 210, 197, 0.92);
+  }
+
+  .problem-metrics div:first-child {
+    padding-left: 14px;
+  }
+
+  .problem-metrics div:nth-last-child(-n + 2) {
+    border-bottom: 0;
+  }
+
   .hero-panel {
     padding: 12px;
   }
@@ -1495,6 +1739,11 @@ h3 {
     min-height: 420px;
   }
 
+  .problem-card {
+    grid-template-columns: 42px minmax(0, 1fr);
+    padding: 16px;
+  }
+
   .story-copy {
     padding: 22px;
   }
@@ -1510,6 +1759,51 @@ h3 {
 
   .footer-links {
     flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 560px) {
+  .problem-visual {
+    min-height: auto;
+    padding-top: 92px;
+    padding-bottom: 84px;
+  }
+
+  .problem-tag {
+    min-width: 136px;
+  }
+
+  .tag-exchanger {
+    top: 0;
+    left: 0;
+  }
+
+  .tag-leak {
+    top: 0;
+    right: 0;
+  }
+
+  .tag-boiler {
+    bottom: 0;
+    left: 0;
+  }
+
+  .tag-insulation {
+    right: 0;
+    bottom: 0;
+  }
+
+  .problem-metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .problem-metrics div,
+  .problem-metrics div:nth-last-child(-n + 2) {
+    border-bottom: 1px solid rgba(221, 210, 197, 0.92);
+  }
+
+  .problem-metrics div:last-child {
+    border-bottom: 0;
   }
 }
 

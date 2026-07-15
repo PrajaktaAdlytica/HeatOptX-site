@@ -48,11 +48,77 @@ const solutionCards = [
   },
 ];
 
-const problems = [
-  "Boiler drift hides inside monthly fuel reports.",
-  "Heat exchanger fouling looks like normal production variance.",
-  "Pipe and insulation failures spread cost across the whole plant.",
-  "Teams struggle to prove which repair pays back first.",
+const problemCards = [
+  {
+    icon: "/icons/boiler.svg",
+    title: "Boiler drift hides inside monthly fuel reports.",
+    copy: "Small inefficiencies compound into major fuel waste.",
+  },
+  {
+    icon: "/icons/heat-exchanger.svg",
+    title: "Heat exchanger fouling looks like normal variance.",
+    copy: "Performance slowly drops while energy use climbs.",
+  },
+  {
+    icon: "/icons/pipe-network.svg",
+    title: "Pipe and insulation failures spread cost.",
+    copy: "Heat loss travels across systems and production lines.",
+  },
+  {
+    icon: "/icons/roi.svg",
+    title: "Teams struggle to prove which repair pays back first.",
+    copy: "Decisions rely on guesswork, not fact.",
+  },
+];
+
+const problemTags = [
+  {
+    icon: "/icons/heat-exchanger.svg",
+    className: "tag-exchanger",
+    title: "Heat exchanger fouling",
+    copy: "+24% energy loss",
+  },
+  {
+    icon: "/icons/leak-detection.svg",
+    className: "tag-leak",
+    title: "Steam line leak",
+    copy: "EUR 18.4k / month",
+  },
+  {
+    icon: "/icons/boiler.svg",
+    className: "tag-boiler",
+    title: "Boiler drift",
+    copy: "+8% fuel usage",
+  },
+  {
+    icon: "/icons/insulation.svg",
+    className: "tag-insulation",
+    title: "Insulation failure",
+    copy: "+15% heat loss",
+  },
+];
+
+const problemMetrics = [
+  {
+    icon: "/icons/savings.svg",
+    value: "10-30%",
+    label: "Energy lost in most plants",
+  },
+  {
+    icon: "/icons/roi.svg",
+    value: "EUR 250k+",
+    label: "Average annual avoidable cost",
+  },
+  {
+    icon: "/icons/co2-reporting.svg",
+    value: "15-25%",
+    label: "Unnecessary CO2 emissions",
+  },
+  {
+    icon: "/icons/detect.svg",
+    value: "Months",
+    label: "To find issues manually",
+  },
 ];
 
 export default function Home() {
@@ -114,9 +180,36 @@ export default function Home() {
       </section>
 
       <section className="problem-band section" id="problem">
-        <div>
+        <div className="problem-left">
           <p className="section-kicker">The problem</p>
           <h2>Industrial heat loss is expensive. Most teams cannot see where it happens.</h2>
+          <div className="problem-visual" aria-label="Industrial heat loss illustration">
+            <img
+              className="problem-plant"
+              src="/illustrations/problem-industrial-heat-loss.png"
+              alt="Isometric industrial plant with copper thermal loss routes"
+            />
+            {problemTags.map((tag) => (
+              <div className={`problem-tag ${tag.className}`} key={tag.title}>
+                <img src={tag.icon} alt="" aria-hidden="true" />
+                <span>
+                  <strong>{tag.title}</strong>
+                  <small>{tag.copy}</small>
+                </span>
+              </div>
+            ))}
+          </div>
+          <div className="problem-metrics" aria-label="Heat loss impact">
+            {problemMetrics.map((metric) => (
+              <div key={metric.value}>
+                <img src={metric.icon} alt="" aria-hidden="true" />
+                <span>
+                  <strong>{metric.value}</strong>
+                  <small>{metric.label}</small>
+                </span>
+              </div>
+            ))}
+          </div>
         </div>
         <div className="problem-content">
           <p>
@@ -125,11 +218,24 @@ export default function Home() {
             monthly reports. HeatOptx gives teams a live thermal view of where
             heat is escaping, what it costs, and which repair pays back first.
           </p>
-          <ul className="problem-list">
-            {problems.map((problem) => (
-              <li key={problem}>{problem}</li>
+          <div className="problem-list">
+            {problemCards.map((problem) => (
+              <article className="problem-card" key={problem.title}>
+                <img src={problem.icon} alt="" aria-hidden="true" />
+                <div>
+                  <h3>{problem.title}</h3>
+                  <p>{problem.copy}</p>
+                </div>
+              </article>
             ))}
-          </ul>
+            <article className="problem-card problem-card-highlight">
+              <img src="/icons/thermal-map.svg" alt="" aria-hidden="true" />
+              <div>
+                <h3>You can&apos;t fix what you can&apos;t see.</h3>
+                <p>HeatOptx makes hidden heat loss visible and actionable.</p>
+              </div>
+            </article>
+          </div>
         </div>
       </section>
 
