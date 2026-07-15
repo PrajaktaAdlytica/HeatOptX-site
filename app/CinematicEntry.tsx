@@ -12,8 +12,14 @@ import {
 } from "lucide-react";
 import { useEffect, useState } from "react";
 
+const productLinks = [
+  { label: "HeatOptx Map", href: "/products/map", copy: "Thermal loss mapping" },
+  { label: "HeatOptx Detect", href: "/products/detect", copy: "AI anomaly detection" },
+  { label: "HeatOptx ROI", href: "/products/roi", copy: "Repair prioritization" },
+];
+
 const navLinks = [
-  { label: "Product", href: "#product" },
+  { label: "Product", href: "#product", children: productLinks },
   { label: "Problem", href: "#problem" },
   { label: "Solutions", href: "#solutions" },
   { label: "Pricing", href: "/pricing" },
@@ -71,14 +77,25 @@ export function CinematicEntry() {
 
         <div className="cinematic-links">
           {navLinks.map((link, index) => (
-            <a
-              className="animate-blur-fade-up"
-              href={link.href}
+            <div
+              className={`nav-dropdown-wrap animate-blur-fade-up${link.children ? " has-dropdown" : ""}`}
               key={link.label}
               style={{ animationDelay: `${100 + index * 50}ms` }}
             >
-              {link.label}
-            </a>
+              <a className="nav-link-trigger" href={link.href}>
+                {link.label}
+              </a>
+              {link.children && (
+                <div className="nav-dropdown" aria-label="Product pages">
+                  {link.children.map((child) => (
+                    <a href={child.href} key={child.href}>
+                      <strong>{child.label}</strong>
+                      <span>{child.copy}</span>
+                    </a>
+                  ))}
+                </div>
+              )}
+            </div>
           ))}
         </div>
 
@@ -121,14 +138,28 @@ export function CinematicEntry() {
 
       <div className={`cinematic-mobile-menu ${isOpen ? "is-open" : ""}`}>
         {navLinks.map((link, index) => (
-          <a
-            href={link.href}
-            key={link.label}
-            onClick={() => setIsOpen(false)}
-            style={{ transitionDelay: `${index * 50}ms` }}
-          >
-            {link.label}
-          </a>
+          <div className="mobile-link-group" key={link.label}>
+            <a
+              href={link.href}
+              onClick={() => setIsOpen(false)}
+              style={{ transitionDelay: `${index * 50}ms` }}
+            >
+              {link.label}
+            </a>
+            {link.children && (
+              <div className="mobile-product-links">
+                {link.children.map((child) => (
+                  <a
+                    href={child.href}
+                    key={child.href}
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {child.label}
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>
         ))}
         <div className="cinematic-mobile-actions">
           <a href="/sign-in" onClick={() => setIsOpen(false)}>

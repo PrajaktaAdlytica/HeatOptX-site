@@ -181,9 +181,84 @@ section[id] {
 .cinematic-links {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 24px;
   color: rgba(255, 255, 255, 0.88);
   font-size: 14px;
+  font-weight: 600;
+}
+
+.nav-dropdown-wrap {
+  position: relative;
+}
+
+.nav-link-trigger {
+  display: inline-flex;
+  align-items: center;
+  min-height: 42px;
+}
+
+.has-dropdown .nav-link-trigger::after {
+  margin-left: 7px;
+  color: currentColor;
+  content: "v";
+  font-size: 11px;
+  line-height: 1;
+  transform: translateY(-1px);
+}
+
+.nav-dropdown {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 50%;
+  z-index: 10000;
+  display: grid;
+  gap: 8px;
+  width: 254px;
+  padding: 10px;
+  border: 1px solid rgba(221, 210, 197, 0.94);
+  border-radius: 8px;
+  background: rgba(255, 253, 249, 0.98);
+  box-shadow: 0 22px 58px rgba(67, 51, 39, 0.16);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 8px);
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease;
+}
+
+.nav-dropdown-wrap:hover .nav-dropdown,
+.nav-dropdown-wrap:focus-within .nav-dropdown {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, 0);
+}
+
+.nav-dropdown a {
+  display: grid;
+  gap: 3px;
+  padding: 12px;
+  border-radius: 8px;
+  color: var(--text);
+  transition:
+    background 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.nav-dropdown a:hover {
+  background: rgba(240, 199, 164, 0.16);
+  color: var(--copper);
+  transform: translateY(-1px);
+}
+
+.nav-dropdown strong {
+  font-size: 14px;
+}
+
+.nav-dropdown span {
+  color: var(--muted);
+  font-size: 12px;
   font-weight: 600;
 }
 
@@ -202,6 +277,22 @@ section[id] {
 
 .cinematic-nav.is-scrolled .cinematic-links a:hover {
   color: var(--copper);
+}
+
+.mobile-link-group {
+  display: grid;
+  gap: 8px;
+}
+
+.mobile-product-links {
+  display: grid;
+  gap: 6px;
+  padding: 0 0 8px 14px;
+}
+
+.mobile-product-links a {
+  color: rgba(255, 255, 255, 0.74);
+  font-size: 13px;
 }
 
 .cinematic-actions {
@@ -1591,7 +1682,8 @@ h3 {
   color: var(--muted);
 }
 
-.roi-actions a {
+.roi-actions-link {
+  display: inline-flex;
   color: var(--copper);
   font-size: 10px;
   font-weight: 750;
@@ -2787,7 +2879,7 @@ h3 {
 }
 
 .subpage-links a:hover,
-.subpage-links a.is-active,
+.subpage-links .is-active,
 .subpage-actions a:hover {
   color: var(--copper);
 }
@@ -3340,6 +3432,10 @@ h3 {
   }
 
   .cinematic-links {
+    display: none;
+  }
+
+  .nav-dropdown {
     display: none;
   }
 

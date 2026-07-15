@@ -436,7 +436,11 @@ export default function Home() {
         </div>
         <div className="product-bento">
           {productCards.map((card) => (
-            <article className={`product-card product-card-${card.kind}`} key={card.title}>
+            <a
+              className={`product-card product-card-${card.kind}`}
+              href={card.href}
+              key={card.title}
+            >
               <div className="product-card-copy">
                 <div className="product-card-header">
                   <img src={card.icon} alt="" aria-hidden="true" />
@@ -456,9 +460,9 @@ export default function Home() {
                     </span>
                   ))}
                 </div>
-                <a className="product-card-link" href={card.href}>
+                <span className="product-card-link">
                   Explore {card.title}
-                </a>
+                </span>
               </div>
               <div className={`product-preview product-preview-${card.kind}`}>
                 {card.kind === "map" && (
@@ -547,12 +551,12 @@ export default function Home() {
                           <small>{["EUR 152,300 / 4.2 mo", "EUR 98,700 / 6.1 mo", "EUR 61,500 / 5.3 mo"][index]}</small>
                         </p>
                       ))}
-                      <a href="/demo">View all actions</a>
+                      <span className="roi-actions-link">View all actions</span>
                     </div>
                   </>
                 )}
               </div>
-            </article>
+            </a>
           ))}
         </div>
         <div className="product-outcomes">
