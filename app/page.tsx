@@ -66,23 +66,75 @@ const productOutcomes = [
 const solutionCards = [
   {
     icon: "/icons/boiler.svg",
+    visual: "factory",
     title: "Factories",
     copy: "Track thermal loss around steam, hot water, compressed processes, and utility rooms.",
+    benefits: [
+      { icon: "/icons/detect.svg", label: "Find hidden losses" },
+      { icon: "/icons/savings.svg", label: "Reduce fuel cost" },
+      { icon: "/icons/security.svg", label: "Improve uptime" },
+    ],
   },
   {
     icon: "/icons/district-heating.svg",
+    visual: "district",
     title: "District heating",
     copy: "Prioritize buried network segments, temperature drops, and service zones with rising losses.",
+    benefits: [
+      { icon: "/icons/leak-detection.svg", label: "Lower network losses" },
+      { icon: "/icons/sensor.svg", label: "Balance demand" },
+      { icon: "/icons/roi.svg", label: "Plan with confidence" },
+    ],
   },
   {
     icon: "/icons/food-processing.svg",
+    visual: "food",
     title: "Food processing",
     copy: "Watch process heat, washdown, pasteurization, chilling, and recovery loops in one place.",
+    benefits: [
+      { icon: "/icons/co2-reporting.svg", label: "Protect quality" },
+      { icon: "/icons/thermal-map.svg", label: "Recover energy" },
+      { icon: "/icons/security.svg", label: "Ensure compliance" },
+    ],
   },
   {
     icon: "/icons/facility.svg",
+    visual: "facility",
     title: "Facility teams",
     copy: "Give maintenance, energy, and sustainability teams a shared thermal operating view.",
+    benefits: [
+      { icon: "/icons/dashboard.svg", label: "One source of truth" },
+      { icon: "/icons/work-order.svg", label: "Act faster" },
+      { icon: "/icons/roi.svg", label: "Prove impact" },
+    ],
+  },
+];
+
+const solutionJourney = [
+  {
+    icon: "/icons/thermal-map.svg",
+    title: "See the truth",
+    copy: "Make hidden heat loss visible across your systems.",
+  },
+  {
+    icon: "/icons/savings.svg",
+    title: "Understand impact",
+    copy: "Quantify cost, carbon, and operational consequence.",
+  },
+  {
+    icon: "/icons/work-order.svg",
+    title: "Prioritize action",
+    copy: "Rank fixes by ROI and payback with confidence.",
+  },
+  {
+    icon: "/icons/pipe-network.svg",
+    title: "Take action",
+    copy: "Coordinate repairs and improvements across teams.",
+  },
+  {
+    icon: "/icons/roi.svg",
+    title: "Prove results",
+    copy: "Measure savings, verify impact, and improve continuously.",
   },
 ];
 
@@ -496,24 +548,72 @@ export default function Home() {
       </section>
 
       <section className="section solutions-section" id="solutions">
-        <div className="section-heading">
-          <p className="section-kicker">Solutions</p>
-          <h2>Built around industrial heat, not generic energy monitoring.</h2>
+        <div className="solutions-hero">
+          <div className="solutions-copy">
+            <p className="section-kicker">Solutions</p>
+            <h2>
+              Built around <span>industrial heat</span>, not generic energy
+              monitoring.
+            </h2>
+            <p>
+              HeatOptx adapts to the way your operation works across plants,
+              networks, processes, and facilities.
+            </p>
+          </div>
+          <img
+            className="solutions-network"
+            src="/illustrations/solutions-industrial-network.png"
+            alt="Industrial heat network connecting factories, facilities, and process sites"
+          />
         </div>
         <div className="solution-grid">
           {solutionCards.map((card) => (
             <article className="solution-card" key={card.title}>
-              <img src={card.icon} alt="" aria-hidden="true" />
-              <h3>{card.title}</h3>
-              <p>{card.copy}</p>
+              <div className="solution-card-top">
+                <img src={card.icon} alt="" aria-hidden="true" />
+                <div>
+                  <h3>{card.title}</h3>
+                  <p>{card.copy}</p>
+                </div>
+              </div>
+              <div className={`solution-visual solution-visual-${card.visual}`}>
+                <img
+                  src="/illustrations/solutions-card-sheet.png"
+                  alt=""
+                  aria-hidden="true"
+                />
+              </div>
+              <div className="solution-benefits">
+                {card.benefits.map((benefit) => (
+                  <span key={benefit.label}>
+                    <img src={benefit.icon} alt="" aria-hidden="true" />
+                    {benefit.label}
+                  </span>
+                ))}
+              </div>
             </article>
           ))}
+        </div>
+        <div className="solution-journey">
+          <div className="journey-intro">
+            <p className="section-kicker">Why teams use it</p>
+            <h3>From invisible loss to measurable value.</h3>
+          </div>
+          <div className="journey-steps">
+            {solutionJourney.map((step) => (
+              <article key={step.title}>
+                <img src={step.icon} alt="" aria-hidden="true" />
+                <h4>{step.title}</h4>
+                <p>{step.copy}</p>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
       <section className="section proof-section">
         <div className="proof-copy">
-          <p className="section-kicker">Why teams use it</p>
+          <p className="section-kicker">ROI proof</p>
           <h2>Prioritization makes heat-loss work fundable.</h2>
           <p>
             HeatOptx packages each finding with the language decision-makers
