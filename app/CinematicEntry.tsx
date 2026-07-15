@@ -12,12 +12,22 @@ import {
   User,
   X,
 } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const entryLinks = ["Product", "Problem", "Solutions", "ROI", "Contact"];
 
 export function CinematicEntry() {
   const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    if (window.location.hash) return;
+
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <section className="cinematic-entry" id="entry">
