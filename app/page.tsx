@@ -305,14 +305,27 @@ export default function Home() {
             </span>
           </div>
         </div>
-        <div className="product-grid">
+        <div className="product-bento">
           {productCards.map((card) => (
             <article className={`product-card product-card-${card.kind}`} key={card.title}>
-              <div className="product-card-header">
-                <img src={card.icon} alt="" aria-hidden="true" />
-                <div>
-                  <h3>{card.title}</h3>
-                  <p>{card.copy}</p>
+              <div className="product-card-copy">
+                <div className="product-card-header">
+                  <img src={card.icon} alt="" aria-hidden="true" />
+                  <div>
+                    <h3>{card.title}</h3>
+                    <p>{card.copy}</p>
+                  </div>
+                </div>
+                <div className="product-feature-row">
+                  {card.details.map((detail) => (
+                    <span key={detail.title}>
+                      <img src={detail.icon} alt="" aria-hidden="true" />
+                      <small>
+                        <strong>{detail.title}</strong>
+                        {detail.copy}
+                      </small>
+                    </span>
+                  ))}
                 </div>
               </div>
               <div className={`product-preview product-preview-${card.kind}`}>
@@ -406,17 +419,6 @@ export default function Home() {
                     </div>
                   </>
                 )}
-              </div>
-              <div className="product-feature-row">
-                {card.details.map((detail) => (
-                  <span key={detail.title}>
-                    <img src={detail.icon} alt="" aria-hidden="true" />
-                    <small>
-                      <strong>{detail.title}</strong>
-                      {detail.copy}
-                    </small>
-                  </span>
-                ))}
               </div>
             </article>
           ))}
