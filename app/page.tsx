@@ -60,27 +60,6 @@ export default function Home() {
     <main>
       <CinematicEntry />
 
-      <header className="site-header">
-        <a className="brand" href="#top" aria-label="HeatOptx home">
-          <img src="/brand/heatoptx-logo-horizontal.svg" alt="HeatOptx" />
-        </a>
-        <nav className="nav-links" aria-label="Primary navigation">
-          <a href="#product">Product</a>
-          <a href="#problem">Problem</a>
-          <a href="#solutions">Solutions</a>
-          <a href="#pricing">Pricing</a>
-          <a href="#demo">Contact</a>
-        </nav>
-        <div className="nav-actions">
-          <a className="nav-login" href="/sign-in">
-            Sign in
-          </a>
-          <a className="button button-small" href="#demo">
-            Request demo
-          </a>
-        </div>
-      </header>
-
       <section className="hero section" id="top">
         <div className="hero-copy">
           <p className="eyebrow">Industrial Thermal AI</p>

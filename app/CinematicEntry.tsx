@@ -7,17 +7,22 @@ import {
   Clock,
   Menu,
   Play,
-  Search,
   Star,
-  User,
   X,
 } from "lucide-react";
 import { useEffect, useState } from "react";
 
-const entryLinks = ["Product", "Problem", "Solutions", "ROI", "Contact"];
+const navLinks = [
+  { label: "Product", href: "#product" },
+  { label: "Problem", href: "#problem" },
+  { label: "Solutions", href: "#solutions" },
+  { label: "Pricing", href: "#pricing" },
+  { label: "Contact", href: "#demo" },
+];
 
 export function CinematicEntry() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     if (window.location.hash) return;
@@ -27,6 +32,15 @@ export function CinematicEntry() {
     }
 
     window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
+    const updateNav = () => setIsScrolled(window.scrollY > 80);
+
+    updateNav();
+    window.addEventListener("scroll", updateNav, { passive: true });
+
+    return () => window.removeEventListener("scroll", updateNav);
   }, []);
 
   return (
@@ -42,44 +56,46 @@ export function CinematicEntry() {
       />
       <div className="cinematic-bottom-blur" aria-hidden="true" />
 
-      <nav className="cinematic-nav" aria-label="Entry navigation">
+      <nav
+        className={`cinematic-nav ${isScrolled ? "is-scrolled" : ""}`}
+        aria-label="Primary navigation"
+      >
         <a
           className="cinematic-logo animate-blur-fade-up"
           href="#entry"
           style={{ animationDelay: "0ms" }}
+          aria-label="HeatOptx home"
         >
-          HeatOptx
+          <img src="/brand/heatoptx-logo-horizontal.svg" alt="HeatOptx" />
         </a>
 
         <div className="cinematic-links">
-          {entryLinks.map((link, index) => (
+          {navLinks.map((link, index) => (
             <a
               className="animate-blur-fade-up"
-              href={link === "Contact" ? "#demo" : `#${link.toLowerCase()}`}
-              key={link}
+              href={link.href}
+              key={link.label}
               style={{ animationDelay: `${100 + index * 50}ms` }}
             >
-              {link}
+              {link.label}
             </a>
           ))}
         </div>
 
         <div className="cinematic-actions">
           <a
-            className="entry-search liquid-glass animate-blur-fade-up"
-            href="#story"
+            className="entry-login animate-blur-fade-up"
+            href="/sign-in"
             style={{ animationDelay: "350ms" }}
           >
-            <span>Explore</span>
-            <Search size={18} strokeWidth={1.8} />
+            Sign in
           </a>
           <a
-            className="entry-user liquid-glass animate-blur-fade-up"
-            href="/sign-in"
-            aria-label="Sign in"
+            className="entry-demo animate-blur-fade-up"
+            href="#demo"
             style={{ animationDelay: "400ms" }}
           >
-            <User size={18} strokeWidth={1.8} />
+            Request demo
           </a>
           <button
             className="entry-menu liquid-glass animate-blur-fade-up"
@@ -104,24 +120,22 @@ export function CinematicEntry() {
       </nav>
 
       <div className={`cinematic-mobile-menu ${isOpen ? "is-open" : ""}`}>
-        {entryLinks.map((link, index) => (
+        {navLinks.map((link, index) => (
           <a
-            href={link === "Contact" ? "#demo" : `#${link.toLowerCase()}`}
-            key={link}
+            href={link.href}
+            key={link.label}
             onClick={() => setIsOpen(false)}
             style={{ transitionDelay: `${index * 50}ms` }}
           >
-            {link}
+            {link.label}
           </a>
         ))}
         <div className="cinematic-mobile-actions">
-          <a href="#story" onClick={() => setIsOpen(false)}>
-            <Search size={17} />
-            Explore
-          </a>
           <a href="/sign-in" onClick={() => setIsOpen(false)}>
-            <User size={17} />
             Sign in
+          </a>
+          <a href="#demo" onClick={() => setIsOpen(false)}>
+            Request demo
           </a>
         </div>
       </div>
