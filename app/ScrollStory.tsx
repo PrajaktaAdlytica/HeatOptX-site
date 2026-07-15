@@ -91,11 +91,9 @@ export function ScrollStory() {
       <div className="story-pin">
         <div className="story-copy">
           <p className="section-kicker">Scroll story</p>
-          <h2>See heat loss. Detect the fault. Prioritize the fix.</h2>
-          <p>
-            HeatOptx turns invisible thermal waste into a product workflow that
-            facility and energy teams can use every week.
-          </p>
+          <span className="story-step-label">{steps[activeStep].eyebrow}</span>
+          <h2>{steps[activeStep].title}</h2>
+          <p>{steps[activeStep].copy}</p>
           <div className="story-status" aria-live="polite">
             <span>{steps[activeStep].eyebrow}</span>
             <strong>{steps[activeStep].metric}</strong>
@@ -137,19 +135,6 @@ export function ScrollStory() {
           <div className="roi-chip chip-payback">3.8 mo payback</div>
           <div className="roi-chip chip-co2">128 tCO2e</div>
         </div>
-      </div>
-
-      <div className="story-step-list">
-        {steps.map((step, index) => (
-          <article
-            className={`story-step ${index === activeStep ? "is-active" : ""}`}
-            key={step.title}
-          >
-            <span>{step.eyebrow}</span>
-            <h3>{step.title}</h3>
-            <p>{step.copy}</p>
-          </article>
-        ))}
       </div>
     </section>
   );
