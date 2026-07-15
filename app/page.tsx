@@ -827,6 +827,17 @@ export default function Home() {
           <a href="#pricing">Pricing</a>
           <a href="#demo">Contact</a>
         </div>
+        <div className="footer-socials" aria-label="Social links">
+          <a href="https://www.linkedin.com" aria-label="LinkedIn">
+            <span>in</span>
+          </a>
+          <a href="https://x.com" aria-label="X">
+            <span>X</span>
+          </a>
+          <a href="https://www.youtube.com" aria-label="YouTube">
+            <span>YT</span>
+          </a>
+        </div>
       </footer>
     </main>
   );
