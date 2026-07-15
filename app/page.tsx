@@ -3,25 +3,63 @@ import { ScrollStory } from "./ScrollStory";
 
 const productCards = [
   {
+    kind: "map",
     icon: "/icons/thermal-map.svg",
     title: "HeatOptx Map",
     copy:
       "Visualize heat-loss intensity across boilers, pipe routes, exchangers, process lines, and district network segments.",
-    details: ["Thermal map", "Asset overlays", "Loss filters"],
+    details: [
+      { icon: "/icons/thermal-map.svg", title: "Thermal map", copy: "Live heat-loss view" },
+      { icon: "/icons/heat-exchanger.svg", title: "Asset overlays", copy: "Context on demand" },
+      { icon: "/icons/leak-detection.svg", title: "Loss filters", copy: "Focus on what matters" },
+    ],
   },
   {
+    kind: "detect",
     icon: "/icons/detect.svg",
     title: "HeatOptx Detect",
     copy:
       "Detect leaks, fouling, insulation failures, abnormal temperature drops, and efficiency drift before they compound.",
-    details: ["Anomaly queue", "Severity scoring", "Cause hints"],
+    details: [
+      { icon: "/icons/dashboard.svg", title: "Anomaly queue", copy: "Prioritized issues" },
+      { icon: "/icons/security.svg", title: "Severity scoring", copy: "Risk at a glance" },
+      { icon: "/icons/sensor.svg", title: "Cause hints", copy: "Act with confidence" },
+    ],
   },
   {
+    kind: "roi",
     icon: "/icons/roi.svg",
     title: "HeatOptx ROI",
     copy:
       "Convert heat loss into annualized savings, payback period, CO2 impact, and ranked repair recommendations.",
-    details: ["Payback model", "CO2 view", "Repair ranking"],
+    details: [
+      { icon: "/icons/roi.svg", title: "Payback model", copy: "Clear business case" },
+      { icon: "/icons/co2-reporting.svg", title: "CO2 view", copy: "Impact quantified" },
+      { icon: "/icons/work-order.svg", title: "Repair ranking", copy: "Focus on ROI" },
+    ],
+  },
+];
+
+const productOutcomes = [
+  {
+    icon: "/icons/savings.svg",
+    title: "Reduce energy loss",
+    copy: "Identify and fix what wastes the most.",
+  },
+  {
+    icon: "/icons/security.svg",
+    title: "Protect assets",
+    copy: "Prevent failures and extend equipment life.",
+  },
+  {
+    icon: "/icons/co2-reporting.svg",
+    title: "Lower emissions",
+    copy: "Cut CO2 with measurable improvements.",
+  },
+  {
+    icon: "/icons/roi.svg",
+    title: "Prove ROI",
+    copy: "Every action tied to savings and payback.",
   },
 ];
 
@@ -242,26 +280,156 @@ export default function Home() {
       <ScrollStory />
 
       <section className="section product-section" id="product">
-        <div className="section-heading">
-          <p className="section-kicker">Product suite</p>
-          <h2>One thermal workflow from map to action.</h2>
-          <p>
-            HeatOptx is designed for teams who need evidence, not another
-            passive dashboard.
-          </p>
+        <div className="product-section-top">
+          <div className="section-heading product-heading">
+            <p className="section-kicker">Product suite</p>
+            <h2>One thermal workflow from map to action.</h2>
+            <p>
+              HeatOptx is designed for teams who need evidence, not another
+              passive dashboard.
+            </p>
+          </div>
+          <div className="product-suite-visual" aria-hidden="true">
+            <img
+              src="/illustrations/problem-industrial-heat-loss.png"
+              alt=""
+            />
+            <span className="suite-marker marker-map">
+              <img src="/icons/thermal-map.svg" alt="" />
+            </span>
+            <span className="suite-marker marker-detect">
+              <img src="/icons/detect.svg" alt="" />
+            </span>
+            <span className="suite-marker marker-roi">
+              <img src="/icons/roi.svg" alt="" />
+            </span>
+          </div>
         </div>
         <div className="product-grid">
           {productCards.map((card) => (
-            <article className="product-card" key={card.title}>
-              <img src={card.icon} alt="" aria-hidden="true" />
-              <h3>{card.title}</h3>
-              <p>{card.copy}</p>
-              <div className="tag-row">
+            <article className={`product-card product-card-${card.kind}`} key={card.title}>
+              <div className="product-card-header">
+                <img src={card.icon} alt="" aria-hidden="true" />
+                <div>
+                  <h3>{card.title}</h3>
+                  <p>{card.copy}</p>
+                </div>
+              </div>
+              <div className={`product-preview product-preview-${card.kind}`}>
+                {card.kind === "map" && (
+                  <>
+                    <aside className="map-legend">
+                      <strong>Heat-loss intensity</strong>
+                      <span className="legend-hot">High</span>
+                      <span className="legend-mid">Medium</span>
+                      <span className="legend-low">Low</span>
+                      <small>Systems</small>
+                      <em>Boilers</em>
+                      <em>Pipes</em>
+                      <em>Exchangers</em>
+                      <em>Network</em>
+                    </aside>
+                    <img
+                      src="/illustrations/plant-thermal-loss-map.svg"
+                      alt="Thermal map interface preview"
+                    />
+                    <div className="map-callout">
+                      <strong>Boiler House 2</strong>
+                      <span>Heat loss</span>
+                      <small>1.82 MWh/h</small>
+                      <b>High</b>
+                    </div>
+                  </>
+                )}
+
+                {card.kind === "detect" && (
+                  <>
+                    <div className="detect-table">
+                      <div className="detect-title">
+                        <strong>Anomaly queue</strong>
+                        <span>12 new</span>
+                      </div>
+                      {[
+                        ["Steam Line 7B", "Leak", "High", "New"],
+                        ["Heat Exchanger 3", "Fouling", "High", "New"],
+                        ["Boiler 2", "Efficiency drift", "Medium", "Investigating"],
+                        ["Pipe Route 4A", "Insulation loss", "Medium", "New"],
+                        ["Tank Farm 1", "Heat loss", "Low", "Monitoring"],
+                      ].map((row) => (
+                        <div className="detect-row" key={row[0]}>
+                          {row.map((cell) => (
+                            <span key={cell}>{cell}</span>
+                          ))}
+                        </div>
+                      ))}
+                    </div>
+                    <div className="detect-side">
+                      <strong>Steam Line 7B</strong>
+                      <span>Severity <b>High</b></span>
+                      <small>Estimated loss</small>
+                      <em>18.4 MWh/day</em>
+                      <div className="trend-line" />
+                    </div>
+                  </>
+                )}
+
+                {card.kind === "roi" && (
+                  <>
+                    <div className="roi-mini-card">
+                      <span>Annualized savings</span>
+                      <strong>EUR 412,560</strong>
+                      <small>Total across 8 actions</small>
+                      <div className="bar-set">
+                        <i />
+                        <i />
+                        <i />
+                        <i />
+                        <i />
+                      </div>
+                    </div>
+                    <div className="roi-mini-card">
+                      <span>Payback period</span>
+                      <strong>7.3</strong>
+                      <small>months</small>
+                      <div className="donut" />
+                    </div>
+                    <div className="roi-actions">
+                      <span>Top actions</span>
+                      {["Insulation repair", "HX cleaning", "Steam trap fix"].map((item, index) => (
+                        <p key={item}>
+                          <b>{index + 1}</b>
+                          <strong>{item}</strong>
+                          <small>{["EUR 152,300 / 4.2 mo", "EUR 98,700 / 6.1 mo", "EUR 61,500 / 5.3 mo"][index]}</small>
+                        </p>
+                      ))}
+                      <a href="#demo">View all actions</a>
+                    </div>
+                  </>
+                )}
+              </div>
+              <div className="product-feature-row">
                 {card.details.map((detail) => (
-                  <span key={detail}>{detail}</span>
+                  <span key={detail.title}>
+                    <img src={detail.icon} alt="" aria-hidden="true" />
+                    <small>
+                      <strong>{detail.title}</strong>
+                      {detail.copy}
+                    </small>
+                  </span>
                 ))}
               </div>
             </article>
+          ))}
+        </div>
+        <div className="product-outcomes">
+          {productOutcomes.map((outcome) => (
+            <div key={outcome.title}>
+              <img src={outcome.icon} alt="" aria-hidden="true" />
+              <span>
+                <strong>{outcome.title}</strong>
+                <small>{outcome.copy}</small>
+              </span>
+            </div>
           ))}
         </div>
       </section>
