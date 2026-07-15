@@ -127,9 +127,6 @@ export function ScrollStory() {
             alt=""
           />
 
-          <div className="thermal-line thermal-line-a" />
-          <div className="thermal-line thermal-line-b" />
-          <div className="thermal-line thermal-line-c" />
           <div className="hotspot" />
           <div className="roi-chip chip-loss">EUR 42k / yr</div>
           <div className="roi-chip chip-payback">3.8 mo payback</div>
