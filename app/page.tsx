@@ -1,3 +1,4 @@
+import { CinematicEntry } from "./CinematicEntry";
 import { ScrollStory } from "./ScrollStory";
 
 const productCards = [
@@ -57,6 +58,8 @@ const problems = [
 export default function Home() {
   return (
     <main>
+      <CinematicEntry />
+
       <header className="site-header">
         <a className="brand" href="#top" aria-label="HeatOptx home">
           <img src="/brand/heatoptx-logo-horizontal.svg" alt="HeatOptx" />

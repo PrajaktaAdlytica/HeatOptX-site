@@ -32,6 +32,8 @@ test("server-renders the HeatOptx homepage", async () => {
 
   const html = await response.text();
   assert.match(html, /<title>HeatOptx - Industrial Thermal AI<\/title>/i);
+  assert.match(html, /See Heat Loss\. Prioritize Impact\./i);
+  assert.match(html, /hf_20260406_094145_4a271a6c-3869-4f1c-8aa7-aeb0cb227994\.mp4/i);
   assert.match(html, /Industrial Thermal AI for hidden heat loss/i);
   assert.match(html, /HeatOptx Map/);
   assert.match(html, /HeatOptx Detect/);
