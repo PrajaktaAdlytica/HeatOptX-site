@@ -1,0 +1,10 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">HeatOptx favicon</title>
+  <desc id="desc">HeatOptx app icon with white heat-flow mark on graphite background.</desc>
+  <rect width="512" height="512" rx="112" fill="#171B1F"/>
+  <g transform="translate(114 132) scale(2.15)">
+    <path d="M18 28H54C62 28 66 23 70 16L76 6C79 2 83 0 88 0H118C122 0 124 2 124 6V22C124 26 122 28 118 28H90C82 28 78 34 74 40L70 46C66 52 61 56 52 56H18C14 56 12 54 12 50V34C12 30 14 28 18 28Z" fill="#F0A36F"/>
+    <path d="M18 44H72C80 44 84 38 88 32L92 26C96 20 101 16 110 16H124V44H104C96 44 92 50 88 56L84 62C80 68 75 72 66 72H18C14 72 12 70 12 66V50C12 46 14 44 18 44Z" fill="#F0C7A4" opacity="0.96"/>
+    <path d="M18 72H54C62 72 66 78 70 84L76 94C79 100 84 104 92 104H118C122 104 124 106 124 110V116H88C80 116 75 112 71 106L66 98C62 92 58 88 50 88H18C14 88 12 86 12 82V78C12 74 14 72 18 72Z" fill="#C66A48"/>
+  </g>
+</svg>

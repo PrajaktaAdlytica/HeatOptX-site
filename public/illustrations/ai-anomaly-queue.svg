@@ -1,0 +1,21 @@
+<svg width="640" height="390" viewBox="0 0 640 390" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">AI anomaly queue</title>
+  <desc id="desc">A refined HeatOptx illustration showing a prioritized queue of thermal anomalies with severity indicators.</desc>
+  <rect width="640" height="390" rx="24" fill="#FFFFFF"/>
+  <rect x=".5" y=".5" width="639" height="389" rx="23.5" stroke="#DDD2C5"/>
+  <rect x="44" y="42" width="552" height="62" rx="14" fill="#F7F3EC"/>
+  <rect x="44" y="124" width="552" height="62" rx="14" fill="#FFFFFF" stroke="#DDD2C5"/>
+  <rect x="44" y="206" width="552" height="62" rx="14" fill="#FFFFFF" stroke="#DDD2C5"/>
+  <circle cx="78" cy="73" r="9" fill="#A7473D"/>
+  <circle cx="78" cy="155" r="9" fill="#C66A48"/>
+  <circle cx="78" cy="237" r="9" fill="#7E9F96"/>
+  <text x="108" y="70" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700" fill="#1E2526">Pipe segment A-14</text>
+  <text x="108" y="92" font-family="Inter, Arial, sans-serif" font-size="12" fill="#4D5B5C">Abnormal surface temperature · high confidence</text>
+  <text x="108" y="152" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700" fill="#1E2526">Heat exchanger HX-02</text>
+  <text x="108" y="174" font-family="Inter, Arial, sans-serif" font-size="12" fill="#4D5B5C">Fouling pattern · clean within 21 days</text>
+  <text x="108" y="234" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700" fill="#1E2526">Boiler loop B</text>
+  <text x="108" y="256" font-family="Inter, Arial, sans-serif" font-size="12" fill="#4D5B5C">Stable within operating baseline</text>
+  <path d="M452 73H548M452 155H548M452 237H548" stroke="#C66A48" stroke-width="7" stroke-linecap="round"/>
+  <rect x="44" y="302" width="170" height="44" rx="10" fill="#D7E9E4"/>
+  <text x="64" y="330" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700" fill="#1E2526">18 active findings</text>
+</svg>

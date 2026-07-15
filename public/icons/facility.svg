@@ -1,0 +1,7 @@
+<svg width="96" height="96" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Facility Teams</title>
+  <desc id="desc">HeatOptx facility teams icon in the brand visual style.</desc>
+  <rect x="8" y="8" width="80" height="80" rx="18" fill="#FFFFFF"/>
+  <rect x="8.5" y="8.5" width="79" height="79" rx="17.5" stroke="#DDD2C5"/>
+  <rect x="26" y="26" width="44" height="46" rx="5" stroke="#1E2526" stroke-width="4"/><path d="M36 38H42M54 38H60M36 50H42M54 50H60M36 62H60" stroke="#1E2526" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 76H74" stroke="#C66A48" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

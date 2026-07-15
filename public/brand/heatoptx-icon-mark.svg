@@ -1,0 +1,18 @@
+<svg width="132" height="116" viewBox="0 0 132 116" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">HeatOptx icon mark</title>
+  <desc id="desc">Three copper heat-flow paths forming a compact industrial thermal mark.</desc>
+  <defs>
+    <linearGradient id="heatoptx-copper" x1="12" y1="0" x2="124" y2="116" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F0A36F"/>
+      <stop offset="0.58" stop-color="#C66A48"/>
+      <stop offset="1" stop-color="#A7473D"/>
+    </linearGradient>
+    <linearGradient id="heatoptx-peach" x1="12" y1="16" x2="124" y2="72" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F0A36F"/>
+      <stop offset="1" stop-color="#F0C7A4"/>
+    </linearGradient>
+  </defs>
+  <path d="M18 28H54C62 28 66 23 70 16L76 6C79 2 83 0 88 0H118C122 0 124 2 124 6V22C124 26 122 28 118 28H90C82 28 78 34 74 40L70 46C66 52 61 56 52 56H18C14 56 12 54 12 50V34C12 30 14 28 18 28Z" fill="url(#heatoptx-copper)"/>
+  <path d="M18 44H72C80 44 84 38 88 32L92 26C96 20 101 16 110 16H124V44H104C96 44 92 50 88 56L84 62C80 68 75 72 66 72H18C14 72 12 70 12 66V50C12 46 14 44 18 44Z" fill="url(#heatoptx-peach)" opacity="0.96"/>
+  <path d="M18 72H54C62 72 66 78 70 84L76 94C79 100 84 104 92 104H118C122 104 124 106 124 110V116H88C80 116 75 112 71 106L66 98C62 92 58 88 50 88H18C14 88 12 86 12 82V78C12 74 14 72 18 72Z" fill="url(#heatoptx-copper)"/>
+</svg>
